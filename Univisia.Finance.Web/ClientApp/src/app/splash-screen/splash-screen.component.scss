@@ -1,0 +1,23 @@
+.splash-screen {
+    z-index: 10001;
+    transition: all 1.5s ease;
+}
+.loader {
+    background: url('/assets/spiners/ball-triangle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+}
+.logo-text {
+    color: #18212f;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    font-family: Rubik, sans-serif;
+    span {
+        color: #774dd2;
+    }
+}

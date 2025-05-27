@@ -1,0 +1,13 @@
+﻿using System.Security.Policy;
+using Univisia.Finance.Data.Models;
+
+namespace Univisia.Finance.Web.ViewModels.LoanView
+{
+    public class LoanOperationViewModel
+    {
+        public int LoanId { get; set; }
+        public int CurrencyId { get; set; }
+        public decimal Amount { get; set; }
+        public string Notes { get; set; }
+    }  
+}

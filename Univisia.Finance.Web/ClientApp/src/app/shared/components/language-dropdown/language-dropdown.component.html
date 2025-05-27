@@ -1,0 +1,23 @@
+<div class="dropdown">
+  <a
+    href="javascript:;"
+    data-bs-toggle="dropdown"
+    id="navbarDropdownMenuLink2"
+    class="btn btn-white dropdown-toggle"
+    aria-expanded="false"
+  >
+    <img src="assets/flags/4x3/{{ value.imgName }}.svg" />
+    {{ value.fullName }}
+  </a>
+  <ul aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu">
+    <li *ngFor="let language of languages">
+      <a
+        href="javascript:;"
+        class="dropdown-item"
+        (click)="onLanguageClick(language)"
+        ><img src="assets/flags/4x3/{{ language.imgName }}.svg" />
+        {{ language.fullName }}
+      </a>
+    </li>
+  </ul>
+</div>

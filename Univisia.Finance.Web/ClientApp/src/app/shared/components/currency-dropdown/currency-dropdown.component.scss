@@ -1,0 +1,22 @@
+.dropdown img {
+  width: 24px;
+  height: 17px;
+  margin-right: 5px;
+}
+a {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.dropdown-menu {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

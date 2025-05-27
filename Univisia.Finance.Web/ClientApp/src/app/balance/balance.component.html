@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="text-center my-5">
+    <h2 class="page-title">{{ "BALANCE.TITLE" | translate }}</h2>
+  </div>
+  <app-wallet-doughnut
+    *ngFor="let item of wallets"
+    [accounts]="item.accounts"
+    [currency]="item.currency.currencyName"
+    [accountsSum]="item.accounts.length"
+    [chartId]="item.currency.currencyName"
+  ></app-wallet-doughnut>
+
+  <div class="card-summary">
+    <span>
+      <i class="bi i-sm bi-currency-exchange"></i>
+    </span>
+    <p>{{ "BALANCE.TOTAL" | translate }}</p>
+    <h3>{{ totalAmount | currency }}</h3>
+  </div>
+</div>

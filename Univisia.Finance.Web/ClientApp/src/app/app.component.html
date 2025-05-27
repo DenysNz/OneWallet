@@ -1,0 +1,14 @@
+<app-splash-screen></app-splash-screen>
+<header>
+  <app-nav-menu></app-nav-menu>
+</header>
+<main>
+  <router-outlet></router-outlet>
+  <app-toast></app-toast>
+  <div class="spinner-wrapper" *ngIf="showSpinner">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>

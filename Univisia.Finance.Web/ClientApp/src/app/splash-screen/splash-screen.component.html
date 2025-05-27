@@ -1,0 +1,12 @@
+<div
+  *ngIf="showSplash"
+  class="splash-screen position-fixed top-0 end-0 d-flex justify-content-center align-items-center bg-white w-100 h-100 shadow"
+  [ngStyle]="{left: windowWidth}"
+>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="logo" tabindex="0">
+      <p class="logo-text"><span>1</span>Wallet</p>
+    </div>
+    <div class="loader mw-100"></div>
+  </div>
+</div>

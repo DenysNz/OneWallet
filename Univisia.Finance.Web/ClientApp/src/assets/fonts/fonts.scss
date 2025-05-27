@@ -1,0 +1,17 @@
+$font-main: Rubik, sans-serif;
+
+@font-face {
+  font-family: "Rubik";
+  font-weight: 400;
+  src: url("./Rubik-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik";
+  font-weight: 500;
+  src: url("./Rubik-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik";
+  font-weight: 700;
+  src: url("./Rubik-Bold.ttf") format("truetype");
+}

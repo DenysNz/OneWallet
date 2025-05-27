@@ -1,0 +1,66 @@
+@import '../../variables.scss';
+
+.privacy, .terms {
+  margin: 40px auto 0px;
+
+  @media (max-width: 768px) {
+    margin: 20px auto 0px;
+  }
+}
+
+.last-item{
+  margin-bottom: 0px;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+h4, h6 {
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, ul {
+  margin: 0 0 22px;
+}
+
+ul li {
+  margin-bottom: 12px;
+}
+
+strong {
+  color: $color-primary-light;
+  font-weight: 500;
+}
+
+b {
+  color: $color-primary;
+  font-weight: 500;
+}
+
+a {
+  color: $color-accent;
+  font-weight: 500;
+  transition: .12s;
+  word-break: break-all;
+
+  &:hover {
+    color: rgba($color-accent, 0.85);
+  }
+}
+
+div:has(> a + a) > a {
+  display: block;
+  font-weight: 400;
+  width: fit-content;
+  margin-bottom: 5px;
+}
+
+p:has(+ h5) {
+  margin-bottom: 28px;
+}

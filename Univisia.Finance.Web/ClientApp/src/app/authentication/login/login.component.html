@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="form mx-auto">
+        <h2 class="text-center mb-4">{{ pageName }}</h2>
+        <div *ngIf="error!=''" class="alert alert-danger" role="alert">
+            <p class="m-0">
+                <small>
+                    <i class="bi bi-exclamation-circle"></i> {{error}}
+                </small>
+            </p>
+            <p class="m-0 text-center" *ngIf="showResendLink">
+                <small>
+                    <a (click)="resendVerificationEmail()">
+                        Resend verification email?
+                    </a>
+                </small>
+            </p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <app-google-button (loginSucceded)="socialNetworksLoginSucceded($event)" (loginFailed)="socialNetworskLoginFailed($event)"></app-google-button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <app-facebook-button (loginSucceded)="socialNetworksLoginSucceded($event)" (loginFailed)="socialNetworskLoginFailed($event)"></app-facebook-button>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+            <app-microsoft-button (loginSucceded)="socialNetworksLoginSucceded($event)" (loginFailed)="socialNetworskLoginFailed($event)"></app-microsoft-button>
+        </div>
+        <form [formGroup]="loginForm" autocomplete="off" class="">
+            <div class="mb-2 input-center">
+                <label class="form-label" for="login">
+                    Username
+                </label>
+                <input id="login" class="form-control" type="text" formControlName="userName">
+                <em *ngIf="loginForm.controls.userName.touched && loginForm.controls.userName.errors?.required">
+                    Username is required.
+                </em>
+            </div>
+            <div class="mb-2 input-center">
+                <label class="form-label" for="password">
+                    Password
+                </label>
+                <input id="password" class="form-control" type="password" formControlName="password">
+                <em *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+                    Password is required.
+                </em>
+            </div>
+            <div class="col text-center mt-4">
+                <button [disabled]="!loginForm.valid" type="button" class="btn fs-6 btn-primary w-75" (click)="loginUser()">Login</button>
+            </div>
+            <div class="text-center mt-2">
+                <a (click)="resetPassword()">Forgot your password?</a>
+            </div>
+            <div class="text-center mt-2">
+                <a (click)="registerAccount()">Don't have an account? <span>Sign up</span> now</a>
+            </div>
+        </form>
+    </div>
+<div>

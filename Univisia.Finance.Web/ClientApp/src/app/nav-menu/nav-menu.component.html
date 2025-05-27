@@ -1,0 +1,125 @@
+<nav class="navbar navbar-expand-xl bg-white">
+  <div class="container-fluid">
+    <div class="logo" routerLink="/">
+      <p class="logo-text"><span>1</span>Wallet</p>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+    >
+      <span *ngIf="!showLink" class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-body pb-0">
+        <ul *ngIf="!showLink" class="navbar-nav justify-content-end flex-grow-1">
+          <li class="nav-item">
+            <a
+              routerLink="accounts"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              >{{ "NAV-MENU.ACCOUNTS" | translate }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="balance"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              >{{ "NAV-MENU.BALANCE" | translate }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="transactions"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              >{{ "NAV-MENU.TRANSACTIONS" | translate }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="loans"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              >{{ "NAV-MENU.LOANS" | translate }}<div *ngIf="count > 0" class="badge rounded-pill text-bg-danger">{{count}}</div></a
+            >
+          </li>
+          <li class="nav-item d-xl-none">
+            <a
+              routerLink="setting"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              >{{ "NAV-MENU.SETTINGS" | translate }}</a
+            >
+          </li>
+          <li class="nav-item d-none d-xl-block">
+            <a
+              routerLink="setting"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              ><i class="bi bi-gear-fill"></i
+            ></a>
+          </li>
+          <li class="nav-item d-none d-xl-block">
+            <a
+              routerLink="login"
+              routerLinkActive="active-link"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              (click)="logout()"
+              ><span class="logout"><i class="bi bi-door-closed-fill"></i></span
+            ></a>
+          </li>
+          <li class="nav-item d-xl-none logout-box border-top">
+            <a
+              routerLink="login"
+              routerLinkActive="active-link"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              class="nav-link active nav-text"
+              aria-current="page"
+              href="#"
+              (click)="logout()"
+              ><span class="logout-btn">{{
+                "NAV-MENU.LOG-OUT" | translate
+              }}</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

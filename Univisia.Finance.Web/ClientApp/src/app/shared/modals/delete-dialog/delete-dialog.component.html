@@ -1,0 +1,34 @@
+<div class="modal-header d-flex justify-content-center">
+  <h4 class="modal-title">Delete</h4>
+</div>
+<div class="modal-body d-flex justify-content-center">
+  <p *ngIf="object.name; else loanTeamplate">
+    {{ "MODALS.DELETE-DIALOG.CONFIRMATION" | translate }}
+    <br />
+    <span class="fw-bold">{{ object.name }}</span>
+    {{ "MODALS.DELETE-DIALOG.ACCOUNT" | translate }}
+  </p>
+  <ng-template #loanTeamplate>
+    <p>
+      {{ "MODALS.DELETE-DIALOG.CONFIRMATION" | translate }}
+      <br />
+      <span class="fw-bold"
+        >{{ object.person }}'s
+        {{ object.amount | currency : object.currency.currencyName }}</span
+      >
+      {{ "MODALS.DELETE-DIALOG.LOAN" | translate }}
+    </p>
+  </ng-template>
+</div>
+<div class="modal-footer d-flex justify-content-center">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="onSave(object.accountId || object.loanId)"
+  >
+    {{ "MODALS.BUTTONS.YES" | translate }}
+  </button>
+  <button type="button" class="btn btn-outline" (click)="onDiscard()">
+    {{ "MODALS.BUTTONS.NO" | translate }}
+  </button>
+</div>

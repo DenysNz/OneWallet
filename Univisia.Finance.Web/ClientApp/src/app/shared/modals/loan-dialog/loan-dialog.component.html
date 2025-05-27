@@ -1,0 +1,238 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+    {{ "MODALS.LOAN-DIALOG.TITLE" | translate }}
+  </h4>
+  <button
+    (click)="dismiss()"
+    type="button"
+    class="btn btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<form [formGroup]="loanForm">
+  <div class="modal-body">
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="email">Email</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="amount"
+          name="email"
+          formControlName="email"
+          [class.is-invalid]="
+            loanForm.get('email')?.invalid && loanForm.get('email')?.touched
+          "
+          [class.is-valid]="
+            loanForm.get('email')?.valid && loanForm.get('email')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="loanForm.get('email')?.hasError('email')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.INVALID-VALUE" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="deadline">{{
+          "MODALS.LOAN-DIALOG.DEADLINE" | translate
+        }}</span>
+        <input
+          type="date"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="deadline"
+          name="deadline"
+          formControlName="deadline"
+          [class.is-invalid]="
+            loanForm.get('deadline')?.invalid &&
+            loanForm.get('deadline')?.touched
+          "
+          [class.is-valid]="
+            loanForm.get('deadline')?.valid && loanForm.get('deadline')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="loanForm.get('deadline')?.hasError('maxlength')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.INVALID-VALUE" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="amount">{{
+          "MODALS.LOAN-DIALOG.AMOUNT" | translate
+        }}</span>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="amount"
+          name="amount"
+          formControlName="amount"
+          [class.is-invalid]="
+            loanForm.get('amount')?.invalid && loanForm.get('amount')?.touched
+          "
+          [class.is-valid]="
+            loanForm.get('amount')?.valid && loanForm.get('amount')?.touched
+          "
+        />
+        <app-currency-dropdown
+          class="separate border rounded-end"
+          [currencies]="currencies"
+          [formControlName]="'currency'"
+          [previousValue]="loan?.currency"
+          [class.border-danger]="
+            loanForm.get('currency')?.invalid &&
+            loanForm.get('currency')?.touched
+          "
+          [class.border-success]="
+            loanForm.get('currency')?.valid && loanForm.get('currency')?.touched
+          "
+        ></app-currency-dropdown>
+      </div>
+      <div
+        class="w-100 d-inline-flex flex-row justify-content-between"
+        *ngIf="
+          (loanForm.get('amount')?.invalid &&
+            loanForm.get('amount')?.touched) ||
+          (loanForm.get('currency')?.invalid &&
+            loanForm.get('currency')?.touched)
+        "
+      >
+        <div
+          *ngIf="
+            loanForm.get('amount')?.invalid && loanForm.get('amount')?.touched
+          "
+          class="invalid-feedback d-block"
+        >
+          {{ "MODALS.WARNINGS.ENTER-AMOUNT" | translate }}
+        </div>
+        <div
+          *ngIf="
+            loanForm.get('currency')?.invalid &&
+            loanForm.get('currency')?.touched
+          "
+          class="invalid-feedback d-block text-end"
+        >
+          {{ "MODALS.WARNINGS.CHOOSE-CURRENCY" | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.LOAN-DIALOG.NOTE" | translate
+        }}</span>
+        <input
+          type="text"
+          autocomplete="off"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="note"
+          maxlength="15"
+          name="note"
+          formControlName="note"
+          [class.is-invalid]="
+            loanForm.get('note')?.hasError('maxlength') ||
+            (loanForm.get('note')?.invalid && loanForm.get('note')?.touched)
+          "
+          [class.is-valid]="
+            loanForm.get('note')?.valid && loanForm.get('note')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="loanForm.get('note')?.hasError('maxlength')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.MAX-VALUE-15" | translate }}
+      </div>
+      <div
+        *ngIf="
+          loanForm.get('note')?.invalid &&
+          loanForm.get('note')?.touched &&
+          !loanForm.get('note')?.hasError('maxlength')
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-NOTE" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.LOAN-DIALOG.PERSON" | translate
+        }}</span>
+        <input
+          type="text"
+          maxlength="15"
+          autocomplete="off"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="note"
+          name="person"
+          formControlName="person"
+          [class.is-invalid]="
+            loanForm.get('person')?.hasError('maxlength') ||
+            (loanForm.get('person')?.invalid && loanForm.get('person')?.touched)
+          "
+          [class.is-valid]="
+            loanForm.get('person')?.valid && loanForm.get('person')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="
+          loanForm.get('person')?.invalid &&
+          loanForm.get('person')?.touched &&
+          !loanForm.get('person')?.hasError('maxlength')
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-PERSON" | translate }}
+      </div>
+      <div
+        *ngIf="loanForm.get('person')?.hasError('maxlength')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.MAX-VALUE-15" | translate }}
+      </div>
+    </div>
+
+    <div class="form-check form-switch d-flex flex-row justify-content-between">
+      <i class="bi bi-plus-circle-fill"></i>
+      <input
+        type="checkbox"
+        role="switch"
+        class="form-check-input"
+        (click)="onAmountChange()"
+        formControlName="status"
+      />
+      <i class="bi bi-dash-circle-fill"></i>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!loanForm.valid"
+        [class.btn-secondary]="!loanForm.valid"
+        (click)="close()"
+      >
+        {{ "MODALS.BUTTONS.SAVE" | translate }}
+      </button>
+      <button type="button" class="btn btn-outline" (click)="dismiss()">
+        {{ "MODALS.BUTTONS.CLOSE" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

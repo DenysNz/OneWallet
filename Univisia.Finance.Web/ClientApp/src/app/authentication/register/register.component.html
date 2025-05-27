@@ -1,0 +1,140 @@
+<div class="container pt-5">
+  <div class="form mx-auto">
+    <h2 class="text-center mb-4">Sign up</h2>
+    <div *ngIf="errorList.length > 0" class="alert alert-danger" role="alert">
+      <p *ngFor="let error of errorList" class="m-0">
+        <small> <i class="bi bi-exclamation-circle"></i> {{ error }} </small>
+      </p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <app-google-button
+        (loginSucceded)="socialNetworksLoginSucceded($event)"
+        (loginFailed)="socialNetworksLoginFailed($event)"
+      ></app-google-button>
+    </div>
+    <div class="d-flex justify-content-center">
+      <app-facebook-button
+        (loginSucceded)="socialNetworksLoginSucceded($event)"
+        (loginFailed)="socialNetworksLoginFailed($event)"
+      ></app-facebook-button>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+      <app-microsoft-button
+        (loginSucceded)="socialNetworksLoginSucceded($event)"
+        (loginFailed)="socialNetworksLoginFailed($event)"
+      ></app-microsoft-button>
+    </div>
+    <form [formGroup]="registerForm" autocomplete="off">
+      <div class="mb-2 input-center">
+        <label class="form-label" for="firstName">First name</label>
+        <input
+          id="firstName"
+          class="form-control"
+          type="text"
+          formControlName="firstName"
+        />
+        <em
+          *ngIf="
+            registerForm.controls.firstName.touched &&
+            registerForm.controls.firstName.errors?.required
+          "
+        >
+          First Name is required.
+        </em>
+      </div>
+
+      <div class="mb-2 input-center">
+        <label class="form-label" for="lastName">Last name</label>
+        <input
+          id="lastName"
+          class="form-control"
+          type="text"
+          formControlName="lastName"
+        />
+        <em
+          *ngIf="
+            registerForm.controls.lastName.touched &&
+            registerForm.controls.lastName.errors?.required
+          "
+        >
+          Last Name is required.
+        </em>
+      </div>
+
+      <div class="mb-2 input-center">
+        <label class="form-label" for="email">Email</label>
+        <input
+          id="email"
+          class="form-control"
+          type="text"
+          formControlName="email"
+        />
+        <em
+          *ngIf="
+            registerForm.controls.email.touched &&
+            registerForm.controls.email.errors?.required
+          "
+        >
+          Email is required.
+        </em>
+        <em *ngIf="registerForm.controls.email.errors?.email">
+          Please provide a valid email.
+        </em>
+      </div>
+
+      <div class="mb-2 input-center">
+        <label class="form-label" for="password">Password</label>
+        <input
+          id="password"
+          class="form-control"
+          type="password"
+          formControlName="password"
+        />
+        <em
+          *ngIf="
+            registerForm.controls.password.touched &&
+            registerForm.controls.password.errors?.required
+          "
+        >
+          Password is required.
+        </em>
+        <em *ngIf="registerForm.controls.password.errors?.pattern">
+          Password should be atleast 6 characters long and should contain one
+          number,one character and one special character.
+        </em>
+      </div>
+
+      <div class="mb-2 input-center">
+        <label class="form-label" for="confirm">Confirm password</label>
+        <input
+          id="confirm"
+          class="form-control"
+          type="password"
+          formControlName="confirm"
+        />
+        <em
+          *ngIf="
+            registerForm.controls.confirm.touched &&
+            registerForm.controls.confirm.errors?.required
+          "
+        >
+          Password confirmation is required.
+        </em>
+        <em *ngIf="registerForm.controls.confirm.errors?.mustMatch">
+          Passwords must match.
+        </em>
+      </div>
+
+      <div class="col text-center mt-4 mb-3">
+        <button
+          [disabled]="!registerForm.valid"
+          class="btn btn-primary fs-6 w-75"
+          (click)="registerUser()"
+        >
+          Sign up
+        </button>
+      </div>
+    </form>
+  </div>
+  <div></div>
+</div>

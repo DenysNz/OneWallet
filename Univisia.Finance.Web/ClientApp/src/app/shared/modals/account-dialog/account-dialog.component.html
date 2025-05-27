@@ -1,0 +1,164 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ "MODALS.ACCOUNT-DIALOG.TITLE" | translate }}</h4>
+  <button
+    (click)="onDiscard()"
+    type="button"
+    class="btn btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<form [formGroup]="accountForm">
+  <div class="modal-body">
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.ACCOUNT-DIALOG.NAME" | translate
+        }}</span>
+        <input
+          type="text"
+          maxlength="15"
+          autocomplete="off"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="name"
+          name="name"
+          formControlName="name"
+          [class.is-invalid]="
+            accountForm.get('name')?.invalid && accountForm.get('name')?.touched
+          "
+          [class.is-valid]="
+            accountForm.get('name')?.valid && accountForm.get('name')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="accountForm.get('name')?.hasError('maxlength')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.MAX-VALUE-15" | translate }}
+      </div>
+      <div
+        *ngIf="
+          accountForm.get('name')?.invalid &&
+          accountForm.get('name')?.touched &&
+          !accountForm.get('name')?.hasError('maxlength')
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-NAME" | translate }}
+      </div>
+    </div>
+    <div *ngIf="!object" class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="amount">{{
+          "MODALS.ACCOUNT-DIALOG.AMOUNT" | translate
+        }}</span>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="amount"
+          name="amount"
+          formControlName="amount"
+          [class.is-invalid]="
+            accountForm.get('amount')?.invalid &&
+            accountForm.get('amount')?.touched
+          "
+          [class.is-valid]="
+            accountForm.get('amount')?.valid &&
+            accountForm.get('amount')?.touched
+          "
+        />
+        <app-currency-dropdown
+          class="separate border rounded-end"
+          [currencies]="currencies"
+          [formControlName]="'currency'"
+          [class.border-danger]="
+            accountForm.get('currency')?.invalid &&
+            accountForm.get('currency')?.touched
+          "
+          [class.border-success]="
+            accountForm.get('currency')?.valid &&
+            accountForm.get('currency')?.touched
+          "
+        ></app-currency-dropdown>
+      </div>
+      <div
+        class="w-100 d-inline-flex flex-row justify-content-between"
+        *ngIf="
+          (accountForm.get('amount')?.invalid &&
+            accountForm.get('amount')?.touched) ||
+          (accountForm.get('currency')?.invalid &&
+            accountForm.get('currency')?.touched)
+        "
+      >
+        <div
+          *ngIf="
+            accountForm.get('amount')?.invalid &&
+            accountForm.get('amount')?.touched
+          "
+          class="invalid-feedback d-block"
+        >
+          {{ "MODALS.WARNINGS.ENTER-AMOUNT" | translate }}
+        </div>
+        <div
+          *ngIf="
+            accountForm.get('currency')?.invalid &&
+            accountForm.get('currency')?.touched
+          "
+          class="invalid-feedback d-block text-end"
+        >
+          {{ "MODALS.WARNINGS.CHOOSE-CURRENCY" | translate }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="object" class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.ACCOUNT-DIALOG.CURRENCY" | translate
+        }}</span>
+        <app-currency-dropdown
+          [previousValue]="object.currency"
+          class="custom-dropdown border rounded-end"
+          [currencies]="currencies"
+          [formControlName]="'currency'"
+          [previousValue]="object.currency"
+          [class.border-danger]="
+            accountForm.get('currency')?.invalid &&
+            accountForm.get('currency')?.touched
+          "
+          [class.border-success]="
+            accountForm.get('currency')?.valid &&
+            accountForm.get('currency')?.touched
+          "
+        ></app-currency-dropdown>
+      </div>
+      <div
+        *ngIf="
+          accountForm.get('currency')?.invalid &&
+          accountForm.get('currency')?.touched
+        "
+        class="invalid-feedback"
+      >
+        {{ "MODALS.WARNINGS.CHOOSE-CURRENCY" | translate }}
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!accountForm.valid"
+        [class.btn-secondary]="!accountForm.valid"
+        (click)="onSave()"
+      >
+        {{ "MODALS.BUTTONS.SAVE" | translate }}
+      </button>
+      <button type="button" class="btn btn-outline" (click)="onDiscard()">
+        {{ "MODALS.BUTTONS.CLOSE" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

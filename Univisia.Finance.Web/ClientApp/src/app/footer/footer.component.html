@@ -1,0 +1,34 @@
+<div class="footer-container">
+  <div class="container-fluid footer fixed-bottom">
+    <button *ngIf="isVisible" type="button" class="btn btn-primary btn-plus" (click)="onOpenModal()">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+    <p class="copyright">
+      <!--Copyright © 2023 <a href="https://univisia.com" class="copyright-link">Univisia</a> sp. z o.o. All rights reserved.-->
+      <span class="d-none d-sm-inline">
+        <a routerLink="support" class="copyright-link">
+          Contact Us
+        </a>
+        <!--<a routerLink="privacy" class="copyright-link">
+          Privacy
+        </a>-->
+        <!--<span>and</span>
+        <a routerLink="terms" class="copyright-link">
+          Terms
+        </a>-->
+      </span>
+      <!--<span class="d-sm-none d-block">
+        <a routerLink="support" class="copyright-link">
+          Contact Us
+        </a>
+        <a routerLink="privacy" class="copyright-link">
+          Privacy
+        </a>
+        <span>and</span>
+        <a routerLink="terms" class="copyright-link">
+          Terms
+        </a>
+      </span>-->
+    </p>
+  </div>
+</div>

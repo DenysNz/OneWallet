@@ -1,0 +1,168 @@
+{
+  "ACCOUNTS": {
+    "TITLE": "Accounts",
+    "TOGGLE": "show deleted",
+    "ADD-BUTTON": "Add",
+    "TABLE": {
+      "NAME": "Name",
+      "CURRENCY": "Currency",
+      "AMOUNT": "Amount"
+    },
+    "WARNING": "There are no accounts, please create one"
+  },
+  "BALANCE": {
+    "TITLE": "Balance",
+    "TOTAL": "Total:"
+  },
+  "LOANS": {
+    "TITLE": "Loans",
+    "ADD-BUTTON": "Add",
+    "TABLE": {
+      "DEADLINE": "Deadline",
+      "AMOUNT": "Amount",
+      "PERSON": "Person",
+      "NOTE": "Note"
+    },
+    "WARNING": "There are no loans, please create one"
+  },
+  "TRANSACTIONS": {
+    "TITLE": "Transactions",
+    "DROPDOWNACCOUNT": "Account",
+    "DROPDOWNLOAN": "Loan",
+    "SHOW-ALL": "All transactions",
+    "TABLE": {
+      "DATE": "Date",
+      "AMOUNT": "Amount",
+      "NOTE": "Note",
+      "STATUS": "Status",
+      "INCOME": "Income",
+      "SPEND": "Spend"
+    },
+    "PAGINATION": {
+      "PAGE": "Page {{ PAGE }} of {{ MAXPAGE }}",
+      "BUTTONS": {
+        "PREVIOUS": "Previous",
+        "NEXT": "Next"
+      }
+    },
+    "WARNING": "There are no transactions"
+  },
+  "SUPPORT":{
+    "TITLE": "Support",
+    "REQUEST-SUCCESSFULLY": "Thank you, your request has been received",
+    "FORM": {
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PLACEHOLDER": "Describe your problem",
+      "BUTTON": "Send"
+    }
+  },
+  "NAV-MENU": {
+    "ACCOUNTS": "Accounts",
+    "BALANCE": "Balance",
+    "TRANSACTIONS": "Transactions",
+    "LOANS": "Loans",
+    "SETTINGS": "Settings",
+    "LOG-OUT": "Log out"
+  },
+  "SETTING-PAGE": {
+    "SETTING": "Settings",
+    "LANGUAGE": "Language:",
+    "CURRENCIES": "Currencies:",
+    "BUTTON-SAVE": "Save",
+    "BUTTON-NEXT": "Next",
+    "BUTTON-DISCARD": "Discard",
+    "UA": "Ukrainian",
+    "EN": "English",
+    "ERROR":"Server error.",
+    "SUCCESSFULLY": "Settings have been saved."
+  },
+  "WELCOME-PAGE": {
+    "WELCOME": "Welcome",
+    "WELCOME-TEXT": "Please choose a language and currencies to use"
+  },
+  "MODALS": {
+    "BUTTONS": {
+      "SAVE": "Save",
+      "CLOSE": "Close",
+      "YES": "Yes",
+      "NO": "No"
+    },
+    "WARNINGS": {
+      "MAX-VALUE-15": "Max possible value is 15",
+      "ENTER-NOTE": "Enter some note",
+      "ENTER-TEXT": "Enter some text",
+      "ENTER-EMAIL": "Enter your Email",
+      "ENTER-AMOUNT": "Enter amount",
+      "ENTER-PERSON": "Enter some person",
+      "ENTER-NAME": "Enter name",
+      "CHOOSE-CURRENCY": "Choose currency",
+      "CHOOSE-ACCOUNT": "Choose account",
+      "CHOOSE-DEADLINE": "Choose deadline",
+      "CHOOSE-LOAN": "Choose loan",
+      "INVALID-VALUE": "Invalid value"
+    },
+    "ACCOUNT-DIALOG": {
+      "TITLE": "Account",
+      "NAME": "Name",
+      "AMOUNT": "Amount",
+      "CURRENCY": "Currency"
+    },
+    "CHANGE-BALANCE": {
+      "TITLE": "Change balance",
+      "ACCOUNT": "Account",
+      "NOTE": "Note",
+      "AMOUNT": "Amount"
+    },
+    "DELETE-DIALOG": {
+      "TITLE": "Delete",
+      "CONFIRMATION": "Are you sure you want to delete the",
+      "ACCOUNT": "account?",
+      "LOAN": "loan?"
+    },
+    "LOAN-DIALOG": {
+      "TITLE": "Loan",
+      "DEADLINE": "Deadline",
+      "AMOUNT": "Amount",
+      "NOTE": "Note",
+      "PERSON": "Person"
+    },
+    "ADD-LOAN-TRANSACTION": {
+      "TITLE": "Add loan transaction",
+      "LOAN": "Loan",
+      "NOTE": "Note",
+      "AMOUNT": "Amount"
+    }
+  },
+  "SHARED-COMPONENTS": {
+    "WALLET-DOUGHNUT": {
+      "CURRENCY-LABEL": "{{ CURRENCY }} Wallet"
+    },
+    "CURRENCY-DROPDOWN": {
+      "LABEL": "Currency"
+    }
+  },
+  "TOAST": {
+    "REQUESTSUCCESSFULLY": "Your request has been sent successfully.",
+    "NOACCOUNTS": "There are no accounts, please create one.",
+    "ERROR": "Server error.",
+    "ACCDELETED": "Account has been deleted.",
+    "ACCDELETEDERROR": "An error occurred. Account was not deleted.",
+    "BALANCECHANGED": "Balance has been changed.",
+    "BALANCECHANGEDERROR": "An error occurred. Balance has not been changed.",
+    "ACCOUNTUPDATED": "Account has been updated.",
+    "ACCOUNTUPDATEDERROR": "An error occurred. Account has not been updated.",
+    "ACCOUNTADDED": "Account has been added.",
+    "ACCOUNTADDEDERROR": "An error occurred. Account has not been added.",
+    "NOLOANS": "There are no loans, please create one.",
+    "LOANDELETED": "Loan has been deleted.",
+    "LOANDELETEDERROR": "An error occurred. Loan was not deleted.",
+    "LOANUPDATED": "Loan has been updated.",
+    "LOANUPDATEDERROR": "An error occurred. Loan has not been updated.",
+    "LOANADDED": "Loan has been added.",
+    "LOANREJECTED": "Loan has been rejected.",
+    "LOANADDEDERROR": "An error occurred. Loan has not been added.",
+    "LOANTRANSACTION": "Loan transaction has been added.",
+    "LOANTRANSACTIONERROR": "An error occurred. Loan transaction has not been added."
+  }
+}
