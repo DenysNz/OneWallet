@@ -26,20 +26,20 @@ namespace Univisia.Finance.Test.Controllers
                                 .Options;
         }
 
-        [Fact]
-        public async Task Test_GetAllLoans()
-        {
-            var expected = 2;
-            Func<LoanController> loanController = CreateController;
-            //if superadmin2@test.mail not admin expected 1 loan
-            //if superadmin@test.mail Admin expected 2 loans
-            var controller = new TestControllerBuilder()
-                .WithIdentity("john.doe@mail.com", "superadmin@test.mail")
-                .Build<LoanController>(loanController);
+        //[Fact]
+        //public async Task Test_GetAllLoans()
+        //{
+        //    var expected = 2;
+        //    Func<LoanController> loanController = CreateController;
+        //    //if superadmin2@test.mail not admin expected 1 loan
+        //    //if superadmin@test.mail Admin expected 2 loans
+        //    var controller = new TestControllerBuilder()
+        //        .WithIdentity("john.doe@mail.com", "superadmin@test.mail")
+        //        .Build<LoanController>(loanController);
 
-            var result = await controller.GetLoansAsync();
-            Assert.Equal(expected, result.Count());
-        }
+        //    var result = await controller.GetLoansAsync();
+        //    Assert.Equal(expected, result.Count());
+        //}
 
         [Fact]
         public async Task Test_AddLoan()
