@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="m-0">Verification email</h4>
+    <button
+    (click)="dismiss()"
+    type="button"
+    class="btn btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<div class="modal-body">
+    <p  class="m-0">
+        Your account has been created.
+    </p>
+    <p  class="mb-2">
+        We have sent a verification code to your email box.
+    </p>
+    <div class="input-group">
+        <span class="input-group-text">
+            Security code:
+        </span>
+        <input #securityCode id="code" class="form-control" type="text" (keyup)="checkSecurityCode(securityCode.value)" maxlength="5">
+        <div *ngIf="isSecurityCodeInvalid">
+            <em class="mt-2 w-100">
+                Security code invalid. 
+            </em>
+            <span>
+                <a (click)="resendVerificationEmail()">Resend verification email.</a>
+            </span>
+        </div>
+        <div *ngIf="isResendEmail" class="text-success mt-2 w-100">
+            Verification email sent.
+        </div>
+    </div>
+</div>

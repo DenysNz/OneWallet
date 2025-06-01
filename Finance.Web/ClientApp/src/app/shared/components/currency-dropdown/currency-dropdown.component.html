@@ -1,0 +1,26 @@
+<div class="dropdown" (click)="onTouched()">
+  <a
+    href="javascript:;"
+    data-bs-toggle="dropdown"
+    id="navbarDropdownMenuLink2"
+    class="btn btn-white dropdown-toggle"
+    aria-expanded="false"
+  >
+    <img
+      *ngIf="choosedCurrency"
+      src="assets/flags/4x3/{{ choosedCurrency.currencyName }}.svg"
+    />
+    {{ dropdownName }}
+  </a>
+  <ul aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu">
+    <li *ngFor="let currency of currencies">
+      <a
+        href="javascript:;"
+        class="dropdown-item"
+        (click)="onCurrencyClick(currency)"
+        ><img src="assets/flags/4x3/{{ currency.currencyName }}.svg" />
+        {{ currency.currencyName }}
+      </a>
+    </li>
+  </ul>
+</div>

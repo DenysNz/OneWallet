@@ -1,0 +1,128 @@
+<div class="main-content">
+  <div class="container">
+    <div class="text-center my-5">
+      <h2 class="page-title d-none d-md-block">
+        {{ "LOANS.TITLE" | translate }}
+      </h2>
+    </div>
+    <div class="card-table">
+      <div
+        class="card-table-title text-start d-flex flex-row justify-content-between align-items-center"
+      >
+        <div class="d-md-none">
+          <h3 class="m-0">{{ "LOANS.TITLE" | translate }}</h3>
+        </div>
+        <div class="ms-md-auto d-flex gap-2">
+          <button
+            type="button"
+            class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0"
+            (click)="onAddLoan()"
+          >
+            <span class="btn-inner--icon me-2">
+              <img src="../../assets/icons/icon-plus-lg.svg" />
+            </span>
+            <span class="btn-inner--text">{{
+              "LOANS.ADD-BUTTON" | translate
+            }}</span>
+          </button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover text-center main-table">
+          <thead>
+            <tr>
+              <th>{{ "LOANS.TABLE.DEADLINE" | translate }}</th>
+              <th>{{ "LOANS.TABLE.AMOUNT" | translate }}</th>
+              <th>{{ "LOANS.TABLE.PERSON" | translate }}</th>
+              <th>{{ "LOANS.TABLE.NOTE" | translate }}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let loan of loans"
+              [class.table-danger]="!amountSymbolCheck(loan.amount)"
+            >
+              <ng-container *ngIf="loan.loanStatusId !== loanStatus.Rejected">
+                <td>
+                  {{ loan.deadline | date : "dd.MM.yyyy" }}
+                </td>
+                <td>
+                  {{
+                    loan.amount
+                      | currency : loan.currency.currencyName : "symbol-narrow"
+                  }}
+                </td>
+                <td>
+                  {{ loan.person }}
+                </td>
+                <td>
+                  {{ loan.note }}
+                </td>
+                <td
+                  class="td-right"
+                  *ngIf="
+                    loan.loanStatusId !== loanStatus.Requested ||
+                    (loan.loanStatusId == loanStatus.Requested && loan.isOwner)
+                  "
+                >
+                  <a
+                    class="mrg-img"
+                    *ngIf="
+                      loan.loanStatusId !== loanStatus.Approved &&
+                      loan.loanStatusId !== loanStatus.Requested
+                    "
+                    tooltip="Edit"
+                    (click)="onUpdateLoan(loan)"
+                    ><img src="../../assets/icons/icon-pen.svg" /></a
+                  ><a
+                    *ngIf="
+                      loan.loanStatusId !== loanStatus.Approved || loan.isOwner
+                    "
+                    class="mrg-img"
+                    tooltip="Delete"
+                    (click)="onDeleteLoan(loan)"
+                    ><img src="../../assets/icons/icon-remove.svg"
+                  /></a>
+                  <a
+                    class="mrg-img"
+                    routerLink="/transactions/loan/{{ loan.loanId }}"
+                    tooltip="Go to transactions"
+                    ><img src="../../assets/icons/icon-arrow-right-square.svg"
+                  /></a>
+                </td>
+                <td
+                  class="td-right"
+                  *ngIf="
+                    loan.loanStatusId == loanStatus.Requested && !loan.isOwner
+                  "
+                >
+                  <button
+                    type="button"
+                    class="btn btn-success btn-request"
+                    (click)="onChangeStatus(loan)"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger btn-request"
+                    (click)="onRejectLoanDialod(loan)"
+                  >
+                    Reject
+                  </button>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="card-table-footer justify-content-center"
+        *ngIf="loans.length === 0"
+      >
+        <p class="mb-0">{{ "LOANS.WARNING" | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

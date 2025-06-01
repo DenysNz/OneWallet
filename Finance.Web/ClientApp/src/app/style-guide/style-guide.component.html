@@ -1,0 +1,503 @@
+<div class="style-guide">
+  <div class="container my-5">
+    <!-- Headings -->
+    <div class="style-guide-block">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </div>
+
+    <!-- Buttons -->
+    <div class="style-guide-block flex mb-4">
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-white">White</button>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+    </div>
+
+    <!-- Toggler, Checkbox, Dropdown, Textboxes -->
+    <div class="style-guide-block flex mb-4">
+      <!-- Toggler -->
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch">
+        <p class="guide-text me-2">Toggler</p>
+      </div>
+
+      <!-- Checkbox -->
+      <div>
+        <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1" checked>
+        <p class="guide-text me-4">Checkbox</p>
+      </div>
+
+      <div>
+        <div class="dropdown">
+          <a href="javascript:;" class="btn bg-gradient-dark dropdown-toggle " data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <li>
+                  <a class="dropdown-item" href="javascript:;">
+                    <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/icons/flags/DE.png" /> Deutsch
+                  </a>
+              </li>
+              <li>
+                  <a class="dropdown-item" href="javascript:;">
+                    <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/icons/flags/GB.png" /> English(UK)
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide-block flex">
+      <!-- Textboxes -->
+      <label class="textbox">
+        <span>Name</span>
+        <input type="text" placeholder="Account Name">
+      </label>
+
+      <label class="textbox">
+        <span>Amount</span>
+        <input type="text" placeholder="$000">
+      </label>
+
+      <label class="textbox">
+        <span>Note</span>
+        <input type="text">
+      </label>
+    </div>
+
+    <!-- First Grid -->
+    <div class="card-table mb-5">
+      <div class="card-table-title">
+        <div>
+          <h6>Recent transactions</h6>
+          <p>These are details about the last transactions</p>
+        </div>
+        <div class="ms-md-auto d-flex gap-2">
+          <form class="search">
+            <a class="search-icon gray">
+              <img src="../../assets/icons/icon-search.svg">
+            </a>
+            <input type="search" placeholder="Search">
+          </form>
+          <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0">
+            <span class="btn-inner--icon">
+              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="d-block me-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+              </svg>
+            </span>
+            <span class="btn-inner--text">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table main-table">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Amount
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Account
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>My Needs</p>
+              </td>
+              <td>
+                $2,200
+              </td>
+              <td>
+                Wed 2:40pm
+              </td>
+              <td>
+                <span class="status active">
+                  <img src="../../assets/icons/icon-mark.svg">
+                  Paid
+                </span>
+              </td>
+              <td>
+                Needs
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Car repair</p>
+              </td>
+              <td>
+                $4,800
+              </td>
+              <td>
+                Wed 1:20pm
+              </td>
+              <td>
+                <span class="status active">
+                  <img src="../../assets/icons/icon-mark.svg">
+                  Paid
+                </span>
+              </td>
+              <td>
+                My Car
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Friends</p>
+              </td>
+              <td>
+                $2,400
+              </td>
+              <td>
+                Wed 3:50am
+              </td>
+              <td>
+                <span class="status process">
+                  <img src="../../assets/icons/icon-time.svg">
+                  Pending
+                </span>
+              </td>
+              <td>
+                Relax
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Project</p>
+              </td>
+              <td>
+                $8,700
+              </td>
+              <td>
+                Tue 3:10pm
+              </td>
+              <td>
+                <span class="status cancelled">
+                  <img src="../../assets/icons/icon-cross.svg">
+                  Cancelled
+                </span>
+              </td>
+              <td>
+                Website
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-table-footer d-none d-md-flex">
+        <button type="button" class="btn btn-sm btn-white">
+          Previous
+        </button>
+
+        <div class="pagination">
+          <a class="active">1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>...</a>
+          <a>6</a>
+          <a>7</a>
+          <a>8</a>
+        </div>
+
+        <button type="button" class="btn btn-sm btn-white">
+          Next
+        </button>
+      </div>
+
+      <div class="card-table-footer d-md-none">
+        <div class="pagination">
+          <p>Page 1 of 10</p>
+        </div>
+  
+        <div class="pagination-buttons">
+          <button type="button" class="btn btn-sm btn-white">Previous</button>
+          <button type="button" class="btn btn-sm btn-white">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Grid-->
+    <div class="card-table mb-5">
+      <div class="card-table-title">
+        <div>
+          <h6>Accounts List</h6>
+          <p>See information about accounts</p>
+        </div>
+        <div class="ms-md-auto d-flex gap-2">
+          <button type="button" class="btn btn-white">View All</button>
+          <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center">
+            <span class="btn-inner--icon me-2">
+              <img src="../../assets/icons/icon-person-add.svg">
+            </span>
+            <span class="btn-inner--text">Download</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-table-subheader">
+        <div class="tabs-group">
+          <input type="radio" name="tab" checked text="All">
+          <input type="radio" name="tab" text="Monitored">
+          <input type="radio" name="tab" text="Unmonitored">
+        </div>
+
+        <form class="search ms-md-auto">
+          <a class="search-icon gray">
+            <img src="../../assets/icons/icon-search.svg">
+          </a>
+          <input type="search" placeholder="Search">
+        </form>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table main-table items-center">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Amount
+              </th>
+              <th>
+                Currency
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Created
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>My Needs</p>
+              </td>
+              <td>
+                €1,200
+              </td>
+              <td>
+                EUR
+              </td>
+              <td>
+                <span class="status active">
+                  Active
+                </span>
+              </td>
+              <td>
+                22/04/22
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>My car</p>
+              </td>
+              <td>
+                $4,800
+              </td>
+              <td>
+                USD
+              </td>
+              <td>
+                <span class="status active">
+                  Active
+                </span>
+              </td>
+              <td>
+                28/08/22
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Friends</p>
+              </td>
+              <td>
+              ₴2,400
+              </td>
+              <td>
+                UAH
+              </td>
+              <td>
+                <span class="status offline">
+                  Inactive
+                </span>
+              </td>
+              <td>
+                08/07/22
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Project</p>
+              </td>
+              <td>
+                $8,700
+              </td>
+              <td>
+                USD
+              </td>
+              <td>
+                <span class="status active">
+                  Active
+                </span>
+              </td>
+              <td>
+                21/07/23
+              </td>
+              <td>
+                <a tooltip="Edit">
+                  <img src="../../assets/icons/icon-pen.svg">
+                </a>
+                <a tooltip="Delete">
+                  <img src="../../assets/icons/icon-remove.svg">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-table-footer">
+        <div class="pagination">
+          <p>Page 1 of 10</p>
+        </div>
+
+        <div class="pagination-buttons">
+          <button class="btn btn-outline">Previous</button>
+          <button class="btn btn-outline">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide-block">
+      <!-- Sub-header -->
+      <div class="sub-header">
+        <div>
+          <h5>Loans and Transactions</h5>
+          <p>You can see all statistic about your money</p>
+        </div>
+
+        <button class="btn btn-primary btn-icon">
+          <img src="../../assets/icons/icon-download.svg">
+          Download
+        </button>
+      </div>
+      <!-- Summary Cards -->
+      <div class="card-summary-container">
+        <div class="card-summary">
+          <span>
+            <i class="bi i-sm bi-currency-exchange"></i>
+          </span>
+          <p>Income</p>
+          <h3>$7200</h3>
+        </div>
+
+        <div class="card-summary">
+          <span>
+            <i class="bi bi-wallet-fill"></i>
+          </span>
+          <p>Loans</p>
+          <h3>$4400</h3>
+        </div>
+
+        <div class="card-summary">
+          <span>
+            <img src="../../assets/icons/icon-persons.svg">
+          </span>
+          <p>Accounts</p>
+          <h3>$8200</h3>
+        </div>
+
+        <div class="card-summary">
+          <span>
+            <img src="../../assets/icons/icon-card.svg">
+          </span>
+          <p>Wallet</p>
+          <h3>$2800</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

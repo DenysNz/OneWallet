@@ -1,0 +1,23 @@
+@import './../../variables.scss';
+
+.style-guide {
+  &-block {
+    margin-bottom: 40px;
+  }
+
+  &-block.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+}
+
+.guide-text {
+  line-height: 1.2;
+  display: inline-block;
+  vertical-align: middle;
+  color: $color-secondary;
+  margin-left: 8px;
+  margin-bottom: 0;
+}

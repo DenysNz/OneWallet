@@ -1,0 +1,12 @@
+.card-summary {
+  max-width: 410px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    max-width: 285px;
+  }
+
+  @media (max-width: 992px) {
+    max-width: 100%;
+  }
+}

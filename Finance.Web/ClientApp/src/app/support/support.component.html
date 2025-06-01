@@ -1,0 +1,121 @@
+<div class="container mt-5">
+  <h3 class="mb-5">{{ "SUPPORT.TITLE" | translate }}</h3>
+  <h5 class="mb-5 gray-text" *ngIf="!showForm">{{ "SUPPORT.REQUEST-SUCCESSFULLY" | translate }}</h5>
+  <div class="form-box">
+  <form [formGroup]="suportForm" *ngIf="showForm">
+    <div class="input-group mb-4">
+      <span class="input-group-text">{{ "SUPPORT.FORM.NAME" | translate }}</span>
+      <input
+        type="text"
+        maxlength="15"
+        autocomplete="off"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="name"
+        name="name"
+        formControlName="name"
+        [class.is-invalid]="
+        suportForm.get('name')?.invalid && suportForm.get('name')?.touched
+        "
+        [class.is-valid]="
+        suportForm.get('name')?.valid && suportForm.get('name')?.touched
+        "
+      />
+      <div
+        *ngIf="
+        suportForm.get('name')?.invalid && suportForm.get('name')?.touched
+        "
+        class="invalid-feedback"
+      >
+      {{ "MODALS.WARNINGS.ENTER-NAME" | translate }}
+      </div>
+    </div>
+    <div class="input-group mb-4">
+      <span class="input-group-text">{{ "SUPPORT.FORM.EMAIL" | translate }}</span>
+      <input
+        type="text"
+        maxlength="100"
+        autocomplete="off"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="email"
+        name="email"
+        formControlName="email"
+        [class.is-invalid]="
+        suportForm.get('email')?.invalid && suportForm.get('email')?.touched
+        "
+        [class.is-valid]="
+        suportForm.get('email')?.valid && suportForm.get('email')?.touched
+        "
+      />
+      <div
+        *ngIf="suportForm.get('email')?.hasError('email')"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.INVALID-VALUE" | translate }}
+      </div>
+      <div
+        *ngIf="
+        suportForm.get('email')?.invalid && suportForm.get('email')?.touched && !suportForm.get('email')?.hasError('email')
+        "
+        class="invalid-feedback"
+      >
+      {{ "MODALS.WARNINGS.ENTER-EMAIL" | translate }}
+      </div>
+    </div>
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      placeholder={{placeholder}}
+      rows="3"
+      maxlength="500"
+      autocomplete="off"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="text"
+      name="text"
+      formControlName="text"
+      [class.is-invalid]="
+      suportForm.get('text')?.invalid && suportForm.get('text')?.touched
+      "
+      [class.is-valid]="
+      suportForm.get('text')?.valid && suportForm.get('text')?.touched
+      "
+    ></textarea>
+    <div
+      *ngIf="
+      suportForm.get('text')?.invalid && suportForm.get('text')?.touched
+      "
+      class="invalid-feedback"
+    >
+    {{ "MODALS.WARNINGS.ENTER-TEXT" | translate }}
+    </div>
+    <form #form="ngForm">
+      <div class="row mt-3">
+        <div class="col-sm-12 mb-2">
+          <re-captcha
+            id="recaptcha"
+            name="recaptcha"
+            #recaptcha="ngModel"
+            [(ngModel)]="token"
+            required
+            [class.is-invalid]="
+              recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)
+            "
+            >
+          </re-captcha>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!suportForm.valid || recaptcha.errors?.['required']"
+        [class.btn-secondary]="!suportForm.valid || recaptcha.errors?.['required']"
+        (click)="onSave()"
+      >
+      {{ "SUPPORT.FORM.BUTTON" | translate }}
+      </button>
+    </form>
+  </form>
+  </div>
+</div>

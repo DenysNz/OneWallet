@@ -1,0 +1,129 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{ "MODALS.ADD-LOAN-TRANSACTION.TITLE" | translate }}
+  </h4>
+  <button
+    (click)="onDiscard()"
+    type="button"
+    class="btn btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<form [formGroup]="loanForm">
+  <div class="modal-body">
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="loan">{{
+          "MODALS.ADD-LOAN-TRANSACTION.LOAN" | translate
+        }}</span>
+        <app-dropdown
+          class="custom-dropdown border rounded-end"
+          id="loan"
+          name="loan"
+          formControlName="loan"
+          [data]="dropdownData"
+          [title]="'Loan'"
+          [class.border-danger]="
+            loanForm.get('loan')?.invalid && loanForm.get('loan')?.touched
+          "
+          [class.border-success]="
+            loanForm.get('loan')?.valid && loanForm.get('loan')?.touched
+          "
+        >
+        </app-dropdown>
+      </div>
+      <div
+        *ngIf="loanForm.get('loan')?.invalid && loanForm.get('loan')?.touched"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.CHOOSE-LOAN" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.ADD-LOAN-TRANSACTION.NOTE" | translate
+        }}</span>
+        <input
+          type="text"
+          maxlength="15"
+          autocomplete="off"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="notes"
+          name="notes"
+          formControlName="notes"
+          [class.is-invalid]="
+            loanForm.get('notes')?.invalid && loanForm.get('notes')?.touched
+          "
+          [class.is-valid]="
+            loanForm.get('notes')?.valid && loanForm.get('notes')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="loanForm.get('notes')?.invalid && loanForm.get('notes')?.touched"
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-NOTE" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="amount">{{
+          "MODALS.ADD-LOAN-TRANSACTION.AMOUNT" | translate
+        }}</span>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="amount"
+          name="amount"
+          formControlName="amount"
+          [class.is-invalid]="
+            loanForm.get('amount')?.invalid && loanForm.get('amount')?.touched
+          "
+          [class.is-valid]="
+            loanForm.get('amount')?.valid && loanForm.get('amount')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="
+          loanForm.get('amount')?.invalid && loanForm.get('amount')?.touched
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-AMOUNT" | translate }}
+      </div>
+    </div>
+    <div class="form-check form-switch d-flex flex-row justify-content-between">
+      <i class="bi bi-plus-circle-fill"></i>
+      <input
+        type="checkbox"
+        role="switch"
+        class="form-check-input"
+        (click)="onAmountChange()"
+        formControlName="status"
+      />
+      <i class="bi bi-dash-circle-fill"></i>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!loanForm.valid"
+        [class.btn-secondary]="!loanForm.valid"
+        (click)="onSave()"
+      >
+        {{ "MODALS.BUTTONS.SAVE" | translate }}
+      </button>
+      <button type="button" class="btn btn-outline" (click)="onDiscard()">
+        {{ "MODALS.BUTTONS.CLOSE" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

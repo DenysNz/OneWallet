@@ -1,0 +1,92 @@
+@import '../../variables.scss';
+
+.navbar {
+  padding: 18px 0;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 8%);
+
+  &-toggler {
+    padding: 5px 0;
+  }
+}
+
+.offcanvas-body{
+  height: 55px;
+}
+
+.text-bg-danger {
+  display: inline-flex;
+  justify-content: center;
+  height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  padding: 0px;
+  padding-right: 0.25px;
+  padding-top: 4px;
+  font-size: 12px;
+  color: aliceblue !important;
+  margin-left: 5px;
+  background-color: rgb(255, 85, 97) !important;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &-text {
+    color: $color-dark;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    font-family: Rubik, sans-serif;
+
+    span {
+      color: $color-accent;
+    }
+  }
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav-text {
+  text-align: center;
+  margin-right: 5px;
+  line-height: 40px !important;
+}
+
+.logout-box {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: translate(-50%, -50%);
+}
+
+.logout-btn {
+  text-align: center;
+  color: $color-accent;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+.navbar-toggler {
+  border: unset;
+  
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.nav-item a {
+  &:hover {
+    color: #774dd2;
+  }
+}
+
+.active-link {
+  color: #774dd2 !important;
+}

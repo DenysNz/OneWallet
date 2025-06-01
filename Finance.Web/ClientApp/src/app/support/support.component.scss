@@ -1,0 +1,24 @@
+re-captcha.is-invalid > div {
+    border: 1px solid #dc3545 !important;
+    border-radius: 0.2rem;
+}
+
+.btn-primary {
+    min-width: 100px;
+}
+
+.mt-5 {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.gray-text {
+    color: rgb(181, 181, 181);
+}
+
+.form-box {
+    width: 100%;
+    max-width: 500px;
+}

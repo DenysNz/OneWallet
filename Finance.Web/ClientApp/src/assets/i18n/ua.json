@@ -1,0 +1,168 @@
+{
+  "ACCOUNTS": {
+    "TITLE": "Рахунки",
+    "TOGGLE": "Показати видалені",
+    "ADD-BUTTON": "Додати",
+    "TABLE": {
+      "NAME": "Ім'я",
+      "CURRENCY": "Валюта",
+      "AMOUNT": "Сума"
+    },
+    "WARNING": "Рахунків ще немає, будь ласка, створіть їх"
+  },
+  "BALANCE": {
+    "TITLE": "Баланс",
+    "TOTAL": "Всьго:"
+  },
+  "LOANS": {
+    "TITLE": "Позики",
+    "ADD-BUTTON": "Добавити",
+    "TABLE": {
+      "DEADLINE": "Термін",
+      "AMOUNT": "Сума",
+      "PERSON": "Особа",
+      "NOTE": "Замітка"
+    },
+    "WARNING": "Позик ще немає, будь ласка, створіть їх"
+  },
+  "TRANSACTIONS": {
+    "TITLE": "Транзакції",
+    "DROPDOWNACCOUNT": "Рахунок",
+    "DROPDOWNLOAN": "Позика",
+    "SHOW-ALL": "Всі транзакції",
+    "TABLE": {
+      "DATE": "Дата",
+      "AMOUNT": "Сума",
+      "NOTE": "Замітка",
+      "STATUS": "Статус",
+      "INCOME": "Дохід",
+      "SPEND": "Витрата"
+    },
+    "PAGINATION": {
+      "PAGE": "Сторінка {{ PAGE }} з {{ MAXPAGE }}",
+      "BUTTONS": {
+        "PREVIOUS": "Назад",
+        "NEXT": "Далі"
+      }
+    },
+    "WARNING": "Транзакцій ще немає"
+  },
+  "SUPPORT":{
+    "TITLE": "Підтримка",
+    "REQUEST-SUCCESSFULLY": "Дякуємо, ваш запит отримано",
+    "FORM": {
+      "NAME": "Ім'я",
+      "EMAIL": "Email",
+      "PLACEHOLDER": "Опишіть вашу проблему",
+      "BUTTON": "Відправити"
+    }
+  },
+  "NAV-MENU": {
+    "ACCOUNTS": "Рахунки",
+    "BALANCE": "Баланс",
+    "TRANSACTIONS": "Транзакції",
+    "LOANS": "Позики",
+    "SETTINGS": "Налаштування",
+    "LOG-OUT": "Вийти"
+  },
+  "SETTING-PAGE": {
+    "SETTING": "Налаштування",
+    "LANGUAGE": "Мова:",
+    "CURRENCIES": "Валюти:",
+    "BUTTON-SAVE": "Зберегти",
+    "BUTTON-NEXT": "Далі",
+    "BUTTON-DISCARD": "Скасувати",
+    "UA": "Українська",
+    "EN": "Англійська",
+    "ERROR":"Помилка серверу.",
+    "SUCCESSFULLY": "Налаштування збережено."
+  },
+  "WELCOME-PAGE": {
+    "WELCOME": "Ласкаво просимо",
+    "WELCOME-TEXT": "Будь ласка, виберіть мову та валюти для користування"
+  },
+  "MODALS": {
+    "BUTTONS": {
+      "SAVE": "Зберегти",
+      "CLOSE": "Закрити",
+      "YES": "Так",
+      "NO": "Ні"
+    },
+    "WARNINGS": {
+      "MAX-VALUE-15": "Максимально можливе значення – 15",
+      "ENTER-NOTE": "Введіть замітку",
+      "ENTER-TEXT": "Введіть текст",
+      "ENTER-EMAIL": "Введіть свою електронну адресу",
+      "ENTER-AMOUNT": "Вкажіть суму",
+      "ENTER-PERSON": "Вкажіть особу",
+      "ENTER-NAME": "Вкажіть ім'я",
+      "CHOOSE-CURRENCY": "Виберіть валюту",
+      "CHOOSE-ACCOUNT": "Виберіть рахунок",
+      "CHOOSE-DEADLINE": "Вкажіть термін",
+      "CHOOSE-LOAN": "Виберіть позику",
+      "INVALID-VALUE": "Недійсне значення"
+    },
+    "ACCOUNT-DIALOG": {
+      "TITLE": "Рахунок",
+      "NAME": "Ім'я",
+      "AMOUNT": "Сума",
+      "CURRENCY": "Валюта"
+    },
+    "CHANGE-BALANCE": {
+      "TITLE": "Зміна балансу",
+      "ACCOUNT": "Рахунок",
+      "NOTE": "Замітка",
+      "AMOUNT": "Сума"
+    },
+    "DELETE-DIALOG": {
+      "TITLE": "Видалення",
+      "CONFIRMATION": "Ви впевнені, що хочете видалити",
+      "ACCOUNT": "рахунок?",
+      "LOAN": "позику?"
+    },
+    "LOAN-DIALOG": {
+      "TITLE": "Позика",
+      "DEADLINE": "Термін",
+      "AMOUNT": "Сума",
+      "NOTE": "Замітка",
+      "PERSON": "Особа"
+    },
+    "ADD-LOAN-TRANSACTION": {
+      "TITLE": "Додавання операції позики",
+      "LOAN": "Позика",
+      "NOTE": "Замітка",
+      "AMOUNT": "Сума"
+    }
+  },
+  "SHARED-COMPONENTS": {
+    "WALLET-DOUGHNUT": {
+      "CURRENCY-LABEL": "Гаманець {{ CURRENCY }}"
+    },
+    "CURRENCY-DROPDOWN": {
+      "LABEL": "Валюта"
+    }
+  },
+  "TOAST": {
+    "REQUESTSUCCESSFULLY": "Ваш запит успішно надіслано.",
+    "NOACCOUNTS": "Немає рахунків, будь ласка, створіть їх.",
+    "ERROR": "Помилка серверу.",
+    "ACCDELETED": "Рахунок видалено.",
+    "ACCDELETEDERROR": "Виникла помилка. Рахунок не видалено.",
+    "BALANCECHANGED": "Баланс змінено.",
+    "BALANCECHANGEDERROR": "Виникла помилка. Баланс не змінено.",
+    "ACCOUNTUPDATED": "Рахунок оновлено.",
+    "ACCOUNTUPDATEDERROR": "Виникла помилка. Рахунок не оновлено.",
+    "ACCOUNTADDED": "Рахунок додано.",
+    "ACCOUNTADDEDERROR": "Виникла помилка. Рахунок не додано.",
+    "NOLOANS": "Позик немає, створіть, будь ласка.",
+    "LOANDELETED": "Позику видалено.",
+    "LOANDELETEDERROR": "Виникла помилка. Позика не була видалена.",
+    "LOANUPDATED": "Позика оновлена.",
+    "LOANUPDATEDERROR": "Виникла помилка. Позика не оновлена.",
+    "LOANADDED": "Позика додана.",
+    "LOANREJECTED": "Позика відхилена.",
+    "LOANADDEDERROR": "Виникла помилка. Кредит не додано.",
+    "LOANTRANSACTION": "Додано операцію позики.",
+    "LOANTRANSACTIONERROR": "Виникла помилка. Операцію позики не додано."
+  }
+}

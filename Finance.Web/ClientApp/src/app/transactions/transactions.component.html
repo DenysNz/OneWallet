@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="text-center my-5">
+    <h2 class="page-title mb-4 d-none d-md-block">
+      {{ "TRANSACTIONS.TITLE" | translate }}
+    </h2>
+  </div>
+  <div class="card-table">
+    <div
+      class="card-table-title text-start d-flex flex-row justify-content-between align-items-center"
+    >
+      <div class="d-md-none">
+        <h3 class="m-0">{{ "TRANSACTIONS.TITLE" | translate }}</h3>
+      </div>
+      <div *ngIf="isAccountSelected">
+        <h6>Name {{ accountName }}</h6>
+      </div>
+      <div class="ms-md-auto d-flex flex-wrap gap-2 btn-group">
+        <div class="dropdown">
+          <a
+            href="javascript:;"
+            class="btn bg-gradient-dark dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="navbarDropdownMenuLink2"
+          >
+            {{ dropDownAccountName }}
+          </a>
+          <div class="dropdown-menu">
+            <button
+              class="dropdown-item"
+              *ngFor="let account of accounts"
+              (click)="onChangeAccount(account, null)"
+            >
+              {{ account.title }}
+            </button>
+            <button class="dropdown-item" (click)="onChangeAccount(null, null)">
+              {{ "TRANSACTIONS.SHOW-ALL" | translate }}
+            </button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a
+            href="javascript:;"
+            class="btn bg-gradient-dark dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="navbarDropdownMenuLink2"
+          >
+            {{ dropDownLoanName }}
+          </a>
+          <div class="dropdown-menu">
+            <button
+              class="dropdown-item"
+              *ngFor="let loan of loans"
+              (click)="onChangeAccount(null, loan)"
+            >
+              {{ loan.person }} ({{ loan.currency.currencyName }}
+              {{ loan.amount }})
+            </button>
+            <button class="dropdown-item" (click)="onChangeAccount(null, null)">
+              {{ "TRANSACTIONS.SHOW-ALL" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover items-center text-center main-table">
+        <thead>
+          <tr>
+            <th>{{ "TRANSACTIONS.TABLE.DATE" | translate }}</th>
+            <th>{{ "TRANSACTIONS.TABLE.AMOUNT" | translate }}</th>
+            <th>{{ "TRANSACTIONS.TABLE.NOTE" | translate }}</th>
+            <th>{{ "TRANSACTIONS.TABLE.STATUS" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>
+              {{ transaction.date | date : "dd.MM.yyyy" }}
+            </td>
+            <td>
+              {{
+                transaction.amount
+                  | currency : transaction.currency.currencyName :'symbol-narrow'
+              }}
+            </td>
+            <td class="text-truncate">
+              {{ transaction.notes }}
+            </td>
+            <td>
+              <span *ngIf="transaction.amount > 0" class="status active">
+                {{ "TRANSACTIONS.TABLE.INCOME" | translate }}
+              </span>
+              <span *ngIf="transaction.amount < 0" class="status cancelled">
+                {{ "TRANSACTIONS.TABLE.SPEND" | translate }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ngb-pagination
+        class="d-none"
+        [collectionSize]="collectionSize"
+        [(page)]="page"
+        [pageSize]="itemsPerPage"
+        [rotate]="true"
+        [ellipses]="false"
+        [directionLinks]="false"
+        (pageChange)="loadTransactions()"
+      >
+      </ngb-pagination>
+      <div
+        class="card-table-footer justify-content-center"
+        *ngIf="transactions.length === 0"
+      >
+        <p class="mb-0">{{ "TRANSACTIONS.WARNING" | translate }}</p>
+      </div>
+    </div>
+    <div class="card-table-footer" *ngIf="maxPage > 1">
+      <div class="pagination">
+        <p>
+          {{
+            "TRANSACTIONS.PAGINATION.PAGE"
+              | translate : { PAGE: page, MAXPAGE: maxPage }
+          }}
+        </p>
+      </div>
+      <div class="pagination-buttons">
+        <button
+          class="btn btn-white btn-pagination"
+          (click)="onChangePage(false)"
+          *ngIf="page !== 1"
+        >
+          {{ "TRANSACTIONS.PAGINATION.BUTTONS.PREVIOUS" | translate }}
+        </button>
+        <button
+          class="btn btn-white btn-pagination"
+          (click)="onChangePage(true)"
+          *ngIf="page !== maxPage"
+        >
+          {{ "TRANSACTIONS.PAGINATION.BUTTONS.NEXT" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

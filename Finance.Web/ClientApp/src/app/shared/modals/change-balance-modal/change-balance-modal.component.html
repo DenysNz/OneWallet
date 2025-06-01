@@ -1,0 +1,138 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ "MODALS.CHANGE-BALANCE.TITLE" | translate }}</h4>
+  <button
+    (click)="onDiscard()"
+    type="button"
+    class="btn btn-close"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+  ></button>
+</div>
+<form [formGroup]="accountForm">
+  <div class="modal-body">
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="currency">{{
+          "MODALS.CHANGE-BALANCE.ACCOUNT" | translate
+        }}</span>
+        <app-dropdown
+          class="custom-dropdown border rounded-end"
+          id="account"
+          name="account"
+          formControlName="account"
+          [data]="dropdownData"
+          [title]="'Accounts'"
+          [class.border-danger]="
+            accountForm.get('account')?.invalid &&
+            accountForm.get('account')?.touched
+          "
+          [class.border-success]="
+            accountForm.get('account')?.valid &&
+            accountForm.get('account')?.touched
+          "
+        >
+        </app-dropdown>
+      </div>
+      <div
+        *ngIf="
+          accountForm.get('account')?.invalid &&
+          accountForm.get('account')?.touched
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.CHOOSE-ACCOUNT" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text">{{
+          "MODALS.CHANGE-BALANCE.NOTE" | translate
+        }}</span>
+        <input
+          type="text"
+          maxlength="15"
+          autocomplete="off"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="notes"
+          name="notes"
+          formControlName="notes"
+          [class.is-invalid]="
+            accountForm.get('notes')?.invalid &&
+            accountForm.get('notes')?.touched
+          "
+          [class.is-valid]="
+            accountForm.get('notes')?.valid && accountForm.get('notes')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="
+          accountForm.get('notes')?.invalid && accountForm.get('notes')?.touched
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-NOTE" | translate }}
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text" id="amount">{{
+          "MODALS.CHANGE-BALANCE.AMOUNT" | translate
+        }}</span>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="amount"
+          name="amount"
+          formControlName="amount"
+          [class.is-invalid]="
+            accountForm.get('amount')?.invalid &&
+            accountForm.get('amount')?.touched
+          "
+          [class.is-valid]="
+            accountForm.get('amount')?.valid &&
+            accountForm.get('amount')?.touched
+          "
+        />
+      </div>
+      <div
+        *ngIf="
+          accountForm.get('amount')?.invalid &&
+          accountForm.get('amount')?.touched
+        "
+        class="invalid-feedback d-block"
+      >
+        {{ "MODALS.WARNINGS.ENTER-AMOUNT" | translate }}
+      </div>
+    </div>
+    <div class="form-check form-switch d-flex flex-row justify-content-between">
+      <i class="bi bi-plus-circle-fill"></i>
+      <input
+        type="checkbox"
+        role="switch"
+        class="form-check-input"
+        (click)="onAmountChange()"
+        formControlName="status"
+      />
+      <i class="bi bi-dash-circle-fill"></i>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!accountForm.valid"
+        [class.btn-secondary]="!accountForm.valid"
+        (click)="onSave()"
+      >
+        {{ "MODALS.BUTTONS.SAVE" | translate }}
+      </button>
+      <button type="button" class="btn btn-outline" (click)="onDiscard()">
+        {{ "MODALS.BUTTONS.CLOSE" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

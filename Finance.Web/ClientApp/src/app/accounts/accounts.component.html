@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="text-center mt-5">
+    <h2 class="page-title mb-3 d-none d-md-block">
+      {{ "ACCOUNTS.TITLE" | translate }}
+    </h2>
+  </div>
+  <div class="d-flex mb-3 justify-content-end">
+    <div class="form-check form-switch">
+      <input
+        type="checkbox"
+        role="switch"
+        class="form-check-input"
+        [(ngModel)]="showDeleted"
+        (change)="onShowDeletedAccounts()"
+      />
+      <p class="toggle-label">{{ "ACCOUNTS.TOGGLE" | translate }}</p>
+    </div>
+  </div>
+  <div class="card-table">
+    <div
+      class="card-table-title text-start d-flex flex-row justify-content-between align-items-center"
+    >
+      <div class="d-md-none">
+        <h3 class="m-0">{{ "ACCOUNTS.TITLE" | translate }}</h3>
+      </div>
+
+      <div class="ms-md-auto d-flex gap-2">
+        <button
+          type="button"
+          class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0"
+          (click)="onAddAccount()"
+        >
+          <span class="btn-inner--icon me-2">
+            <img src="../../assets/icons/icon-plus-lg.svg" />
+          </span>
+          <span class="btn-inner--text">{{
+            "ACCOUNTS.ADD-BUTTON" | translate
+          }}</span>
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover text-center main-table">
+        <thead>
+          <tr>
+            <th>{{ "ACCOUNTS.TABLE.NAME" | translate }}</th>
+            <th>{{ "ACCOUNTS.TABLE.CURRENCY" | translate }}</th>
+            <th>{{ "ACCOUNTS.TABLE.AMOUNT" | translate }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let account of accounts"
+            [class.table-danger]="account.isDeleted"
+          >
+            <td>
+              <p>{{ account.name }}</p>
+            </td>
+            <td>
+              {{ account.currency.currencyName }}
+            </td>
+            <td>
+              {{ account.amount }}
+            </td>
+            <td>
+              <a
+                tooltip="Edit"
+                *ngIf="!account.isDeleted"
+                (click)="onUpdateAccount(account)"
+                ><img src="../../assets/icons/icon-pen.svg"
+              /></a>
+              <a
+                tooltip="Delete"
+                (click)="onOpenDeleteModal(account)"
+                *ngIf="!account.isDeleted"
+                ><img src="../../assets/icons/icon-remove.svg"
+              /></a>
+              <a
+                routerLink="/transactions/account/{{ account.accountId }}"
+                tooltip="Go to transactions"
+                ><img src="../../assets/icons/icon-arrow-right-square.svg"
+              /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="card-table-footer justify-content-center"
+      *ngIf="accounts.length === 0"
+    >
+      <p class="text-center mb-0">{{ "ACCOUNTS.WARNING" | translate }}</p>
+    </div>
+  </div>
+</div>

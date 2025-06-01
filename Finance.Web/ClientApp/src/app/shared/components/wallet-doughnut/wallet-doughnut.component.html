@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-lg-4">
+    <div class="card-summary mb-4">
+      <div class="card-body py-3">
+        <div class="row">
+          <div class="col-4 pe-1">
+            <div class="chart">
+              <canvas
+                id="{{ chartId }}"
+                class="chart-canvas"
+                height="150"
+                width="116"
+                style="
+                  display: block;
+                  box-sizing: border-box;
+                  height: 150px;
+                  width: 116px;
+                "
+                >{{ chart }}</canvas
+              >
+            </div>
+          </div>
+          <div class="col-8 my-auto">
+            <div class="d-flex justify-content-center">
+              <div>
+                <p class="mb-4 text-center wallet-text">
+                  {{
+                    "SHARED-COMPONENTS.WALLET-DOUGHNUT.CURRENCY-LABEL"
+                      | translate : { CURRENCY: currency }
+                  }}
+                </p>
+                <h4>
+                  {{ totalBalance | currency : currency :'symbol-narrow'}}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xl-5 col-md-8 d-flex flex-column mx-auto">
+    <div class="body px-5 pt-3">
+      <form role="form" [formGroup]="settingForm">
+        <label>{{ "SETTING-PAGE.LANGUAGE" | translate }}</label>
+        <div class="mb-4 shadow">
+          <app-language-dropdown
+            class="w-100"
+          ></app-language-dropdown>
+        </div>
+        <label>{{ "SETTING-PAGE.CURRENCIES" | translate }}</label>
+        <div class="row mb-3">
+          <div
+            *ngFor="let currency of currencies"
+            class="col-6 col-md-4 form-check form-switch mb-2 d-flex justify-content-center"
+          >
+            <app-checkbox
+              [formControlName]="currency.currencyName"
+              [currency]="currency"
+              (change)="onChange()"
+            ></app-checkbox>
+            <img
+              class="ms-2"
+              src="assets/flags/4x3/{{ currency.currencyName }}.svg"
+            />
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto text-center">
+          <button
+          *ngIf="isWelcome"
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!settingForm.valid"
+            [class.btn-secondary]="!settingForm.valid"
+            (click)="onClickNext()"
+          >
+            {{ "SETTING-PAGE.BUTTON-NEXT" | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
