@@ -1,20 +1,43 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# OneWallet
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+**OneWallet** — це зручний вебзастосунок для обліку особистих фінансів. Додаток дозволяє відстежувати доходи, витрати, керувати позиками, а також аналізувати фінансову активність у зручному інтерфейсі.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Основні функції
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- Облік доходів і витрат
+- Створення рахунків з різними валютами
+- Керування позиками між користувачами
+- Графіки та аналітика (Chart.js)
+- Адаптивний дизайн (Bootstrap)
+- PWA: можливість встановлення як мобільного застосунку
+- Двофакторна автентифікація через Google OAuth 2.0
+- Надсилання листів через SendGrid
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Технології
+
+- Frontend: Angular, Bootstrap, TypeScript
+- Backend: ASP.NET Core 6.0, REST API
+- База даних: SQL Server
+- Інші: Git, Chart.js, Google reCAPTCHA
+
+## Встановлення
+
+1. Клонуйте репозиторій:
+
+   ```bash
+   git clone https://github.com/DenysNz/OneWallet.git
+   ```
+
+2. Перейдіть у директорію:
+
+   ```bash
+   cd OneWallet
+   ```
+
+3. Налаштуйте `appsettings.json` у проєкті `Finance.Web`.
+
+4. Запустіть бекенд і frontend окремо відповідними командами для .NET і Angular.
+
+## Автор
+
+[DenysNz](https://github.com/DenysNz)
